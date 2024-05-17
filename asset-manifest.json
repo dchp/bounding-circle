@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bounding-circle/static/css/main.3479582e.css",
+    "main.js": "/bounding-circle/static/js/main.1be3b30d.js",
+    "index.html": "/bounding-circle/index.html",
+    "main.3479582e.css.map": "/bounding-circle/static/css/main.3479582e.css.map",
+    "main.1be3b30d.js.map": "/bounding-circle/static/js/main.1be3b30d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3479582e.css",
+    "static/js/main.1be3b30d.js"
+  ]
+}
