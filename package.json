@@ -1,5 +1,5 @@
 {
-  "homepage": "https://livedetermined.github.io/react2",
+  "homepage": "https://dchp.github.io/bounding-circle",
   "name": "bounding_circle",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "nmp run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
