@@ -1,13 +1,136 @@
 body {
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #151515;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body #mainContent {
+  max-width: 900px;
+  background-color: #e4e4e4;
+  min-height: 800px;
+  padding: 20px 60px;
+}
+
+body.modalOpened {
+  overflow: hidden; /* prevent scrolling */
+}
+
+body.modalOpened::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+button,
+div.point {
+  border-radius: 4px;
+  border-color: transparent;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  color: gray;
+  background-color: #f0f0f0;
+}
+
+button:hover,
+.pointList .point:hover,
+.pointList .point.hovered {
+  background-color: #e7e6e6;
+  transform: scale(0.96);
+}
+
+button:disabled {
+  cursor: default;
+  color: #c7c5c5;
+  transform: none;
+  background-color: #f7f7f7;
+}
+
+button:disabled:hover {
+  cursor: default;
+  background-color: #f7f7f7;
+}
+
+.pointList {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  max-width: 860px;
+}
+
+.pointList .point {
+  font-size: small;
+  display: inline-block;
+  padding: 4px 6px;
+  margin: 3px;
+  border-radius: 4px;
+  color: gray;
+  background-color: #f0f0f0;
+}
+
+#infoDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center the dialog */
+  width: 40%;
+  height: 50px;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 2px 8px lightgray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+#drawBoard {
+  position: relative;
+  margin: 30px;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+svg.movingByPoint {
+  cursor: grabbing;
+}
+
+circle#circumscribedCircle {
+  stroke: gray;
+  stroke-width: 1.4;
+  fill: lightgray;
+}
+
+circle.hovered {
+  cursor: grab;
+  fill: #3c3c3c;
+}
+
+circle.selected {
+  cursor: grabbing;
+}
+
+#drawBoard #clearAllPointsButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 36px;
 }
