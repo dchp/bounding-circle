@@ -87,7 +87,7 @@ button:disabled:hover {
   padding: 20px;
   text-align: center;
   background-color: white;
-  box-shadow: 0 2px 8px lightgray;
+  box-shadow: 0 2px 8px rgb(36, 14, 14);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -110,21 +110,6 @@ svg {
 }
 
 svg.movingByPoint {
-  cursor: grabbing;
-}
-
-circle#circumscribedCircle {
-  stroke: gray;
-  stroke-width: 1.4;
-  fill: lightgray;
-}
-
-circle.hovered {
-  cursor: grab;
-  fill: #3c3c3c;
-}
-
-circle.selected {
   cursor: grabbing;
 }
 

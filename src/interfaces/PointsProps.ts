@@ -1,8 +1,9 @@
 import { Point } from "../types/Point";
 
-interface PointsProps {
+interface pointsProps {
   points: Point[];
   setPoints: (points: Point[]) => void;
+  contactPoints: Point[];
 }
 
-export default PointsProps;
+export default pointsProps;

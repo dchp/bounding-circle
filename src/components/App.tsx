@@ -1,34 +1,59 @@
 import { useEffect, useState } from "react";
-import { Point } from "../types/Point";
 import PointList from "./PointList";
 import DrawBoard from "./DrawBoard";
-import { DefaultCircle } from "../types/Circle";
-import { getBoundingCircle } from "../utils/geometry";
+import { getBoundingSphere } from "../utils/geometry";
+import { DefaultSphere, type BoundingSphere } from "../types/Sphere";
+import { pointToString, type Point } from "../types/Point";
 
 const App = () => {
   const [points, setPoints] = useState([] as Point[]);
-  const [boundingCircle, setBoundingCircle] = useState(DefaultCircle);
+  const [boundingSphere, setBoundingSphere] = useState(
+    undefined as BoundingSphere | undefined
+  );
   const [hoveredPointIndex, setHoveredPointIndex] = useState(-1);
-  useEffect(() => setBoundingCircle(getBoundingCircle(points)), [points]);
+  useEffect(() => {
+    setBoundingSphere(getBoundingSphere(points));
+  }, [points]);
 
   return (
     <div id="mainContent">
-      <h1>Bounding circle</h1>
+      <h1>Bounding sphere</h1>
+      <HelpMessage points={points} boundingSphere={boundingSphere} />
       <DrawBoard
         points={points}
-        setPoints={setPoints}
         hoveredPointIndex={hoveredPointIndex}
-        setHoveredPointIndex={setHoveredPointIndex}
-        boundingCircle={boundingCircle}
+        setPoints={setPoints}
+        boundingSphere={boundingSphere}
       />
       <PointList
         points={points}
         setPoints={setPoints}
+        contactPoints={boundingSphere?.touchPoints || []}
         hoveredPointIndex={hoveredPointIndex}
         setHoveredPointIndex={setHoveredPointIndex}
       />
     </div>
   );
 };
+
+const HelpMessage = ({
+  points,
+  boundingSphere,
+}: {
+  points: Point[];
+  boundingSphere: BoundingSphere | undefined;
+}) => (
+  <>
+    {boundingSphere && boundingSphere.sphere !== DefaultSphere && (
+      <p>
+        Sphere has center point {pointToString(boundingSphere.sphere.center)}{" "}
+        and radius {Math.round(boundingSphere.sphere.radius)}.
+      </p>
+    )}
+    {points.length < 2 && (
+      <p>Create at least two points. Start by click to bottom plane.</p>
+    )}
+  </>
+);
 
 export default App;
