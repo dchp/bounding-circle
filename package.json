@@ -1,6 +1,6 @@
 {
-  "homepage": "https://dchp.github.io/bounding-circle",
-  "name": "bounding_circle",
+  "homepage": "https://dchp.github.io/bounding-sphere",
+  "name": "bounding_sphere",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

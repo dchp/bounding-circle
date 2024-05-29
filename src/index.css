@@ -113,21 +113,6 @@ svg.movingByPoint {
   cursor: grabbing;
 }
 
-circle#circumscribedCircle {
-  stroke: gray;
-  stroke-width: 1.4;
-  fill: lightgray;
-}
-
-circle.hovered {
-  cursor: grab;
-  fill: #3c3c3c;
-}
-
-circle.selected {
-  cursor: grabbing;
-}
-
 #drawBoard #clearAllPointsButton {
   position: absolute;
   top: 20px;
